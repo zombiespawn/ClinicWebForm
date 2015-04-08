@@ -342,36 +342,33 @@ namespace ClinicWebForm.Controllers
         public ActionResult SelectedFormType(int id)
         {
             string viewName = "";
-            
+            List<HouseholdRegistrationViewModel> list;
+
             switch (id)
             {
                 case 1:
                     viewName = "_ListHouseHoldRegistration";
-                    var list = SelectDBObjects.LoadHouseholdRegistrationViewModels();
-                    return PartialView(viewName, list);
+                    break;
                 case 2:
                     viewName = "_ListIndividualAdultHealthRecord";
-                    var list1 = SelectDBObjects.LoadIndividualAdultHealthRecord();
-                    return PartialView(viewName, list1);
+                    break;
                 case 3:
                     viewName = "_ListMaternalandChildHealthRecord";
-                    var list2 = SelectDBObjects.LoadHouseholdRegistrationViewModels();
-                    return PartialView(viewName, list2);
+                    break;
                 case 4:
                     viewName = "_ListOTTemplate";
-                    var list3 = SelectDBObjects.LoadHouseholdRegistrationViewModels();
-                    return PartialView(viewName, list3);
+                    break;
                 case 5:
                     viewName = "_ListReferralForm";
-                    var list4 = SelectDBObjects.LoadHouseholdRegistrationViewModels();
-                    return PartialView(viewName, list4);
+                    break;
                 case 6:
                     viewName = "_ListVisitTick";
-                    var list5 = SelectDBObjects.LoadHouseholdRegistrationViewModels();
-                    return PartialView(viewName, list5);
-                default:
-                    return PartialView(viewName);
+                    break;
             }
+
+            list = SelectDBObjects.LoadHouseholdRegistrationViewModels();
+
+            return PartialView(viewName, list);
         }
     }
 }
